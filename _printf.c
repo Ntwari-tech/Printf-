@@ -11,15 +11,15 @@
 int printChar(va_list args);
 int printString(va_list args);
 int printPercentage(va_list args);
-in printInteger(va_list args);
+int printInteger(va_list args);
 
 int _printf(const char *format, ...)
 {
 	unsigned int i;
 	int ans = 0;
 	va_list args; 
-	pt types[] = {
-		{"c", printchar},
+	pt types[] ={ 
+		{"c", printChar},
 		{"s", printString},
 		{"%", printPercentage},
 		{"d", printInteger},
@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 	int notfound = 1;
 	if (format == NULL || (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
-	va_start(args, format);
+	va_start (args, format);
 	while (format != NULL && *format != '\0')
 	{
 		if (*format == '%')

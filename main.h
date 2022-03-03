@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MN_H
+#define MN_H
 
 /**
  * struct printTypes - Basic structure of printf
