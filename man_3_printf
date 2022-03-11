@@ -1,0 +1,23 @@
+				Man Page for Printf function
+_printf():
+
+_printf [specifier (optional phrase)]
+_printf [plain text]
+
+specifiers:
+	%s -string
+	%c - character
+	%d - integer
+	%i - integer
+	% - non specified
+
+This is a function that passes similar data types through to a destination. The object is specified with a % and a leter(s) after the % sign. The % is the specifier signal and the leter(s) is the source data and destination output. 
+
+example: 
+
+_printf("My Favorite Number is : %d)
+
+Result: My Favorite Number is : 7
+
+%d specifies the desired data to be inserted by the specifier. 
+
