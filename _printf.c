@@ -1,6 +1,7 @@
+#include <unistd.h>
 #include "main.h"
 #include <stdio.h>
-
+#include <stdarg.h>
 /**
  * _printf - produces output according to the format
  *@format: accepts all types of specifiers that are created
@@ -29,15 +30,15 @@ int _printf(const char *format, ...)
 	int notfound = 1;
 	if (format == NULL || (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
-	va_start (args, format);
+	va_start(args, format);
 	while (format != NULL && *format != '\0')
 	{
 		if (*format == '%')
 		{
 			format++;
-		for (i = 0; types[i].formation != NULL; i++)
+		for (i = 0; types[i].form != NULL; i++)
 		{
-		if (*format == *(types[i].formation))
+		if (*format == *(types[i].form))
 		{
 			ans += types[i].f(args);
 			format++;
@@ -45,10 +46,11 @@ int _printf(const char *format, ...)
 			break;
 		}
 		}
+		
 		if (notfound)
 			ans += write(1, format++, 1);
 		}
-	}
+	
 	else
 	{
 		ans += write(1, format++, 1);
@@ -63,7 +65,7 @@ return(ans);
  * @args: Argument passed
  * Return: length of data
  */
-it printChar(va_list args)
+int printChar(va_list args)
 {
 	char c = va_arg(args, int);
 	return (write(1, &c, 1));
@@ -79,7 +81,7 @@ int printString(va_list args)
 	char *str = va_arg(args, char *);
 	int size;
 	
-	if (str ++ NULL)
+	if (str == NULL)
 		str = "(null)";
 	size = _strlen(str);
 	return (write(1, str, size));
@@ -106,8 +108,8 @@ int printInteger(va_list args)
 	char buff[33];
 	char *str;
 	int num = va_arg(args, int);
-	int size;
-	str = itoa(num buff, 10);
+	int size;	
+	str = itoa(num, buff, 10);
 	size = _strlen(str);
 	return (write(1, str, size));
 }
@@ -121,5 +123,6 @@ int _strlen(const char *s)
 	int i = 0;
 	while (s[i] != '\0')
 		i++;
+
 	return (i);
 }

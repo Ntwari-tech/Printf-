@@ -1,5 +1,5 @@
-#ifndef MN_H
-#define MN_H
+#ifndef MAIN_H
+#define MAIN_H
 
 /**
  * struct printTypes - Basic structure of printf
@@ -15,10 +15,10 @@ typedef struct printTypes
 
 int _printf(const char *format, ...);
 int _strlen(const char *s);
-int _abs(int n);
-char *itoa(int value, char *buffer, int base);
 char *_strcpy(char *dest, char *src);
 void rev_string(char *s);
+int _abs(int n);
+char *itoa(int value, char *buffer, int base);
 /*in printChar(va_list args, int *ans);*/
 /*int printString(va_list args, int *ans):*/
 

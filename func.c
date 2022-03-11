@@ -58,7 +58,7 @@ char *itoa(int value, char *buffer, int base)
 			buffer[i++] = 48 + r;
 		n /= base;
 	}
-	if (if == 0)
+	if (i == 0)
 		buffer[i++] = '0';
 	if (value < 0 && base == 10)
 		buffer[i++] = '-';
